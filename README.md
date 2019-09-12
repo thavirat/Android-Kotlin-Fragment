@@ -11,12 +11,16 @@ fun openFragment(fragment: Fragment) {
     transaction.commit()
 }
 ```
+
 และทำการแก้ไขฟังก์ชั่น onNavigationItemSelected ให้ไปเรียกใช้คำสั่งเปิด Fragment โดยตัวอย่างจะทำเพียงแค่หน้าแรกหน้าเดียว
 โค้ดเดิม
+
 ```
 R.id.nav_item_one -> Toast.makeText(this, "Clicked item one", Toast.LENGTH_SHORT).show()
 ```
+
 โค้ดใหม่
+
 ```
 R.id.nav_item_one -> {
     val homeFragment = FirstFragment.newInstance()
@@ -24,10 +28,13 @@ R.id.nav_item_one -> {
     drawer.closeDrawer(GravityCompat.START)
 }
 ```
+
 และเพิ่มคำสั่งให้ทำการปิด Navigation เมื่อทำการกดเลือกเมนู โดยให้เพิ่มไปที่ฟังก์ชั่น onNavigationItemSelected นำคำสั่งไปไว้ก่อน return
+
 ```
 drawer.closeDrawer(GravityCompat.START)
 ```
+
 สรุปหน้าตาโค้ดจะได้ออกมาเป็นลักษณะดังนี้
 <p align="center">
   <img src="https://tgf-programing.com/uploads/temp//1568306768-YhJGQ.jpg">
@@ -37,7 +44,9 @@ drawer.closeDrawer(GravityCompat.START)
 <p align="center">
   <img src="https://tgf-programing.com/uploads/temp//1568306728-HOYWV.jpg">
 </p>
+
 แล้วนำโค้ดชุดนี้ไปวาง
+
 ```
 class FirstFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -54,6 +63,7 @@ class FirstFragment : Fragment(){
 }
 ```
 จะได้หน้าตาเป็นแบบนี้
+
 <p align="center">
   <img src="https://tgf-programing.com/uploads/temp//1568306871-EfTf6.jpg">
 </p>
@@ -79,7 +89,7 @@ class FirstFragment : Fragment(){
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
+```
 จะได้โค้ดหน้าตาออกมาเป็นดังนี้
 <p align="center">
   <img src="https://tgf-programing.com/uploads/temp//1568307111-RXzXH.jpg">
